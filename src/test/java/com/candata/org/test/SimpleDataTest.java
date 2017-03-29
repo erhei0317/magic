@@ -11,6 +11,11 @@ public class SimpleDataTest {
 /*		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		Date date = sdf.parse("2017-3-29");*/
 		 
-		 System.out.println(System.currentTimeMillis());;
+	//	 System.out.println(System.currentTimeMillis());;
+		 
+		String str="http://www.55188.com/viewthread.php?tid=7895018&ajaxlist=5";
+		String s=str.substring(str.indexOf("tid=")+4,str.indexOf("&"));
+		System.out.println(s);
+		
 	}
 }

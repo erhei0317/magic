@@ -15,6 +15,35 @@
 	</properties>
 
 	<dependencies>
+		<!-- mysql驱动包 -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.40</version>
+		</dependency>
+		
+		<!-- 数据库连接池 -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>druid</artifactId>
+		    <version>1.0.29</version>
+		</dependency>
+		
+		
+		
+		<!-- junit测试包 -->
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		
+	<!-- spring的依赖包结束 -->
+	
+	
+	
 		<dependency>
 			<groupId>us.codecraft</groupId>
 			<artifactId>webmagic-extension</artifactId>
@@ -37,7 +66,6 @@
 			<artifactId>webmagic-extension</artifactId>
 			<version>0.6.1</version>
 		</dependency>
-
 
 	</dependencies>
 </project>

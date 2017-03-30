@@ -25,7 +25,7 @@ import us.codecraft.xsoup.Xsoup;
 
 public class MegagamePageProcessor implements PageProcessor {
 
-	private static String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153";
+	private static String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153&page=2";
 	
 	private Site site = Site.me()//
 			.setRetryTimes(3)//
@@ -61,7 +61,6 @@ public class MegagamePageProcessor implements PageProcessor {
 					portal.setLinkedcode(linkedcode);
 					portal.setTheme(theme);
 					portal.setLink(link);
-//System.out.println(link);
 					requesturls.add("http://www.55188.com/viewthread.php?tid="+linkedcode+"&ajaxlist=5");
 					
 					portal.setGid(Integer.parseInt(linkedcode));
@@ -154,14 +153,5 @@ public class MegagamePageProcessor implements PageProcessor {
 		return this.msg;
 	}
 
-	public static void main(String[] args) {
-		Spider.create(new MegagamePageProcessor())//
-				.addUrl(sourceURL)//
-				.addPipeline(new JsonFilePipeline("D:\\magic"))
-				.addPipeline(new MegagamePagePipeline())
-				.thread(8)//
-				.run();
-
-	}
 
 }

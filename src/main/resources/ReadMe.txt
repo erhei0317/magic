@@ -42,6 +42,64 @@ webmgic使用教程：
 	util时间类型与数据库时间类型java.util.Date cannot be cast to java.sql.Date:
 		java.sql.Date date = new java.sql.Date(new java.util.Date().getTime());
 		
+	
+	
+	此程序通过入口程序：controller包下的RequestApp启动main方法，其中之后会开启两个线程，一个线程是启动undertow服务器，一个线程是启动spring容器，
+	spring容器启动后，利用spring容器去调用quartz的scheduler，调度后台程序去从理想论坛去抓取荐股活动的最新资源信息，保存在数据库中。然后通过http请求，
+	
+	http:\\localhost:8080?pageindex=0&pagesize=10；
+	
+	注意：参数pageindex和pagesize必须要有。
+	访问服务器后返回json的数据格式信息。
+	上面的信息，也就是说提供了restful接口的服务，通过url请求，拿到JSON的数据格式，通过前端程序员在页面上展示。
+	
+	
+	本例可以自己创建一个访问资源的页面请求json数据即可，通过
+	以下提供的显示方式：
+	在页面中添加样式表：
+	
+	<style>
+	pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+	.string { color: green; }
+	.number { color: darkorange; }
+	.boolean { color: blue; }
+	.null { color: magenta; }
+	.key { color: red; }
+	</style>
+	
+	样式表添加在完之后，在页面body体中添加
+	<pre id="result"></pre>
+	
+	引入以下JavaScript脚本：
+	<script>
+			function syntaxHighlight(json) {
+		    if (typeof json != 'string') {
+		        json = JSON.stringify(json, undefined, 2);
+		    }
+		    json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+		    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+		        var cls = 'number';
+		        if (/^"/.test(match)) {
+		            if (/:$/.test(match)) {
+		                cls = 'key';
+		            } else {
+		                cls = 'string';
+		            }
+		        } else if (/true|false/.test(match)) {
+		            cls = 'boolean';
+		        } else if (/null/.test(match)) {
+		            cls = 'null';
+		        }
+		        return '<span class="' + cls + '">' + match + '</span>';
+		    });
+		}
+		</script>
+		
+	通过ajax方法调用该方法，该方法的参数就是服务器端的JSON
+	为了页面好看，可以在ajax方法中，直接调用 $('#result').html(syntaxHighlight(res));
+	
+	
+	
 		
 		
 

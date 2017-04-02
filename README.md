@@ -181,3 +181,5 @@ webmgic使用教程：
 
 	新增加了quartz定时作业的任务
 ​		
+
+具体查看resources下的readme.txt

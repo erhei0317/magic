@@ -14,18 +14,7 @@ import com.candata.magic.service.MegagamePageProcessor;
 public class SimpleDataTest {
 
 	 public static void main(String[] args) throws ParseException {
-/*		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		Date date = sdf.parse("2017-3-29");*/
-		 
-	//	 System.out.println(System.currentTimeMillis());;
-		 
-/*		String str="http://www.55188.com/viewthread.php?tid=7895018&ajaxlist=5";
-		String s=str.substring(str.indexOf("tid=")+4,str.indexOf("&"));
-		System.out.println(s);*/
-		 
-		 
-			String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153&page=2";
-
+			String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153";
 			Spider.create(new MegagamePageProcessor())//
 			.addPipeline(new MegagamePagePipeline())
 			.addPipeline(new JsonFilePipeline("D:\\candata_web"))

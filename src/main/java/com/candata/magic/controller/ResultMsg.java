@@ -1,18 +1,23 @@
 package com.candata.magic.controller;
 
-import java.util.List;
 
-import com.candata.magic.pojo.Portal;
+import com.alibaba.fastjson.JSONObject;
 
 public class ResultMsg {
 	private String msg;
 	private int count;
-	private List<Portal> list;
+	private JSONObject jsonMsg;
 	public String getMsg() {
 		return msg;
 	}
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+	public JSONObject getJsonMsg() {
+		return jsonMsg;
+	}
+	public void setJsonMsg(JSONObject jsonMsg) {
+		this.jsonMsg = jsonMsg;
 	}
 	public int getCount() {
 		return count;
@@ -20,10 +25,5 @@ public class ResultMsg {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public List<Portal> getList() {
-		return list;
-	}
-	public void setList(List<Portal> list) {
-		this.list = list;
-	}
+
 }

@@ -25,7 +25,7 @@ import us.codecraft.xsoup.Xsoup;
 
 public class MegagamePageProcessor implements PageProcessor {
 
-	private static String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153&page=2";
+	private static String sourceURL = "http://www.55188.com/forumdisplay.php?fid=8&filter=type&typeid=153";
 	
 	private Site site = Site.me()//
 			.setRetryTimes(3)//
